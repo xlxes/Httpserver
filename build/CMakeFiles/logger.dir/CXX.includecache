@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x/httpserver/logger/logger.cpp
+logger.h
+/home/x/httpserver/logger/logger.h
+
+/home/x/httpserver/logger/logger.h
+iostream
+-
+string
+/home/x/httpserver/logger/string
+pthread.h
+/home/x/httpserver/logger/pthread.h
+

@@ -1,0 +1,56 @@
+1.
+在httpserver命名空间中
+存放一些static const常量、httprequet结构体以及Epollserver类
+
+2.
+Epollserver类公有继承于Tcpserver
+（1）构造函数：
+依据Parameters类对象指针，填补端口号用于基类的构造，基类根据port构造出一个socket类，使用智能指针访问
+获取doc_root和defalut_file,
+随后调用file_mmap函数（利用param中的file_path_lists将文件路径中的所有文件打开，并加载到共享内存，同时将路径名和对应共享内存地址放在map中
+（2）eventfd()：创建一个事件signal_fd用于接收signa信号
+（3）析构函数：依次关闭打开文件的标示符号、并释放共享内存
+（4）sig_init_handle()：接收到ctrl+c信号,向signal_fd写入一个int激活该事件
+（5）add_event(fd,eventype)：利用epoll_ctl删除该fd
+（6）del_event(fd,eventype)：同上
+（7）close_client(fd)：从时间队列中删除该fd,删除fd对应的Timer*对象，将client_fd_timer指向空指针，关闭fd
+（8）epoll_loop()：epoll主循环，判断event事件类型进行响应处理
+（9）client_event：接收客户端传来的http请求，调用analy_httprequest进行解析，使用response_httprequest进行处理，其判断是fileserver还是cgiserver,并转到相应的处理函数
+（10）file_server、cgi_server、httperror_404、httperror_501发送相关的http消息回客户端
+
+*----------注意-----------*
+1忽略sigpipe信号：
+当服务端收到客户端fd发来的FIN时（即客户端关闭），
+若此时调用read函数，若没有数据则返回0，表示正常关闭，
+若此时调用write函数，第一次可以正常返回，但是客户端会发送一个RST报文，第二次服务端发送时会产生sigpipe信号，导致异常退出，
+故这里需要忽略该信号。
+https://blog.csdn.net/xinguan1267/article/details/17357093
+
+2.关于定时队列
+
+在epoll_loop()中
+(1)使用timerfd_create创建一个timefd
+(2)struct itimerspec : 含有两个timespec结构变量,一个为间隔、一个为值，
+timespec结构其中包含秒和纳秒两个变量，
+clock_gettime //获取当前时间
+timerfd_settime //设置当前新的超时时间并开始计时
+timer定时的时间间隔，第一次是ts.it_value这么长，后面每次时间间隔是ts.it_interval这么长
+http://blog.chinaunix.net/uid-28458801-id-5035347.html
+https://blog.csdn.net/a1232345/article/details/45307723
+
+如果有新的连接到来，则为新的fd创建一个Timer*对象，
+同时初始化时使用bind函数将超时函数和Epollserver类中的超时关闭函数连接在一起，
+超时时间为time(NULL)+5s即当前时间上加5s
+当定时器事件发生时，可以从timerfd中读取uint64大小的数据，因此读到了则证明定时器时间到
+
+定时器时间到时会查询当前时间time(NULL),并与链表头的超时时间相比，如果超时则执行超时操作，否则不操作
+
+3.
+time(NULL) 获得当前时间
+
+std::bind(&Epollserver::close_overtime_client, this, std::placeholders::_1)
+//占位符placeholders::_1表示函数close_overtime_client传入一个参数
+则同样timer->overtime_callback() //也传入一个参数
+
+events[i].events & EPOLLRDHUP //当客户端调用close时，进入该条件
+https://blog.csdn.net/zhouguoqionghai/article/details/94591475

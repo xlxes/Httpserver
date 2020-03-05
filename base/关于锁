@@ -1,0 +1,19 @@
+1.文件httpmutex.h
+命名空间为httpmutex
+声明两个类
+
+2.Httpmutex
+私有成员：pthread_mutex_t mutex_
+公有成员函数：
+构造（初始化锁）
+析构（销毁锁）
+上锁、解锁、获得锁
+
+3.Httpmutexguard
+私有成员：Httpmutex&
+成员函数：构造时上锁、析构时解锁
+用于短暂而多次的上锁情况
+
+4.上述两个类均不允许拷贝和复制操作
+方便在生存周期上锁、解锁。
+

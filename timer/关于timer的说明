@@ -1,0 +1,25 @@
+1.
+该文件夹中包含timer.h 和timerqueue.h,所涉及的定义均在timer的工作空间内
+
+2.timer.h
+该文件定义了Timer类
+私有成员：回调函数、fd、超时时间、在超时列表中位置（list迭代器）
+公有成员函数：
+构造、析构、设置回调函数、设置迭代器、设置超时时间
+执行回调函数、获得返回时间、获得fd、获得迭代器(获得均为const)
+重载操作符<(比较超时时间)
+
+3.timequeue.h
+该文件定义了Timerqueue类
+私有成员：list(数据类型Timer*) httpmutex锁
+公有成员函数：
+add_timer() //按超时时间大小（begin最小，end最大）向list中插入Timer对象
+del_timer() //从list中根据迭代器删除Timer*对象
+top() //返回front，超时时间最短的
+empty() //list是否为空
+size() //list中元素大小
+
+4.注意：上述类成员函数均有加锁，
+Httpmutex::httpmutexguard m(mutex_);
+即是一个生命周期只有当前函数大小的锁，对象析构时自动解锁
+

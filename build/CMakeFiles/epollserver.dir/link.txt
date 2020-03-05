@@ -1,0 +1,2 @@
+/usr/bin/ar qc libepollserver.a  CMakeFiles/epollserver.dir/src/epollserver.cpp.o
+/usr/bin/ranlib libepollserver.a

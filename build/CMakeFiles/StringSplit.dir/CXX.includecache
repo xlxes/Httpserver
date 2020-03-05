@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x/httpserver/src/StringSplit.cpp
+string.h
+-
+StringSplit.h
+/home/x/httpserver/src/StringSplit.h
+
+/home/x/httpserver/src/StringSplit.h
+string
+-
+vector
+-
+

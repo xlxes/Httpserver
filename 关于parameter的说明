@@ -1,0 +1,33 @@
+
+1.建立了一个parameters的命名空间，空间中定义了如下常量以及命令解析的长短结构常量short_cmd_opt和long_cmd_opt
+static const int MAX_FILE = 128;
+const int LISTEN_PORT = 8080;
+const int TIME_OUT = 10;
+const int MAX_CLIENT = 10000;
+const int INIT_WORK_NUM = 5;
+const int MAX_WORK_NUM = 100000;
+
+2.
+建立了一个Parameters类,处于parameters命名空间内
+类包含
+私有成员：cgi路径、文件路径、文件名、监听端口、文件名路径列表、最大客户端数量、超时时间、初始化工作线程数、最大工作线程数、ptree树
+私有函数：从默认路径加载xml文件
+公有函数：显示所有私有成员、返回私有成员、构造函数
+构造函数：使用1中的常量进行默认赋值，地址用字符串常量赋值，随后读取xml文件的配置，有冲突则覆盖。最后读取命令行输入的参数，冲突则覆盖
+故优先级为：命令行输入的参数最高，xml中的配置次之，最后是程序中的常量值
+
+3.使用getopt.h中的getopt_long函数来解析输入的命令行参数
+详细见：https://www.cnblogs.com/xujie2013/p/3380943.html
+
+4.默认参数如下：
+cgi_root_("doc/cgi/"),
+default_file_("index.html"),
+doc_root_("doc"),
+config_file_("doc/config.xml"),
+listen_port_(LISTEN_PORT),
+max_client_(MAX_CLIENT),
+time_out_(TIME_OUT),
+init_work_num_(INIT_WORK_NUM),
+max_work_num_(MAX_WORK_NUM)
+同时会将doc_root_ + '/' + default_file_ 合成path存入file_list_中
+ 

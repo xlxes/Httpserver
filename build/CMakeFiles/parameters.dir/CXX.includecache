@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../logger/logger.h
+iostream
+-
+string
+../logger/string
+pthread.h
+../logger/pthread.h
+
+/home/x/httpserver/src/parameters.cpp
+parameters.h
+/home/x/httpserver/src/parameters.h
+
+/home/x/httpserver/src/parameters.h
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+getopt.h
+-
+vector
+-
+string
+-
+iostream
+-
+boost/property_tree/ptree.hpp
+-
+boost/property_tree/xml_parser.hpp
+-
+boost/property_tree/exceptions.hpp
+-
+logger.h
+/home/x/httpserver/src/logger.h
+

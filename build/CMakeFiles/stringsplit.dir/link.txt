@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstringsplit.a  CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o
+/usr/bin/ranlib libstringsplit.a

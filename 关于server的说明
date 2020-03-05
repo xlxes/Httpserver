@@ -1,0 +1,28 @@
+1.分server.h和server.cpp
+处于命名空间httpserver中
+
+2.server.h包含两个类
+Socket和Tcpserver
+
+Socket类
+私有成员：fd port mode
+公有函数：获得fd、设置为复用模式
+listen、bind、accept、close
+
+Tcpserver类
+私有成员:指向Socket类的shared指针
+公有函数：构造(禁止默认的)、析构（虚的）
+设置fd为非阻塞模式
+
+3.注意：
+fd设置为复用set_reuse的好处：
+简单来说就是当一个服务端处于Time_wait的时候可以重用他的端口bind而不报错
+https://blog.csdn.net/u010144805/article/details/78579528
+
+fd设置为非阻塞模式set_noblock的好处：
+    ET 模式是一种边沿触发模型，在它检测到有 I/O 事件时，通过 epoll_wait 调用会得到有事件通知的文
+件描述符，每于每一个被通知的文件描述符，如可读，则必须将该文件描述符一直读到空，让 errno 返回 EAGAIN 
+为止，否则下次的 epoll_wait 不会返回余下的数据，会丢掉事件。而如果你的文件描述符如果不是非阻塞的，那
+这个一直读或一直写势必会在最后一次阻塞。
+https://www.cnblogs.com/heluan/p/9174494.html
+

@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 -O3  -O0 -Wall -g2 -ggdb  -rdynamic CMakeFiles/httpserver.dir/src/main.cpp.o  -o httpserver libepollserver.a libserver.a liblogger.a libparameters.a libstringsplit.a liblogger.a 
