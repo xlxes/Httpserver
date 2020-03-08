@@ -1,2 +1,0 @@
-/usr/bin/ar qc libhttpdeal.a  
-/usr/bin/ranlib libhttpdeal.a

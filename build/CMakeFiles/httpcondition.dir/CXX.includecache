@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x/httpserver/base/httpcondition.cpp
+httpcondition.h
+/home/x/httpserver/base/httpcondition.h
+errno.h
+/home/x/httpserver/base/errno.h
+
+/home/x/httpserver/base/httpcondition.h
+httpmutex.h
+/home/x/httpserver/base/httpmutex.h
+
+/home/x/httpserver/base/httpmutex.h
+boost/noncopyable.hpp
+-
+pthread.h
+-
+

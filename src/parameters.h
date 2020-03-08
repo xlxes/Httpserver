@@ -15,7 +15,7 @@
 
 #define LOGGER_WARN
 #define LOGGER_INFO
-#define LOGGER_DEBUG
+//#define LOGGER_DEBUG
 #include "logger.h"
 
 using boost::property_tree::read_xml;   
@@ -31,13 +31,7 @@ using std::endl;
 namespace httpserver
 {
 const string SERVER_NAME = "a http server of xlxes";
-enum status
-{
-    SUCESS,
-    FAILED
-};
-namespace parameters
-{
+
 //固定默认参数设置
 const int LISTEN_PORT = 8080;
 const int TIME_OUT = 10;
@@ -77,7 +71,6 @@ public:
     void displayConfig();
 };
 
-} // namespace parameters
 } // namespace httpserver
 
 #endif //PARAMETER_H_

@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/x/httpserver/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named httpserver
+
+# Build rule for target.
+httpserver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 httpserver
+.PHONY : httpserver
+
+# fast build rule for target.
+httpserver/fast:
+	$(MAKE) -f CMakeFiles/httpserver.dir/build.make CMakeFiles/httpserver.dir/build
+.PHONY : httpserver/fast
+
+#=============================================================================
+# Target rules for targets named epollserver
+
+# Build rule for target.
+epollserver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 epollserver
+.PHONY : epollserver
+
+# fast build rule for target.
+epollserver/fast:
+	$(MAKE) -f CMakeFiles/epollserver.dir/build.make CMakeFiles/epollserver.dir/build
+.PHONY : epollserver/fast
+
+#=============================================================================
 # Target rules for targets named logger
 
 # Build rule for target.
@@ -122,6 +148,19 @@ logger: cmake_check_build_system
 logger/fast:
 	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/build
 .PHONY : logger/fast
+
+#=============================================================================
+# Target rules for targets named httpthread
+
+# Build rule for target.
+httpthread: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 httpthread
+.PHONY : httpthread
+
+# fast build rule for target.
+httpthread/fast:
+	$(MAKE) -f CMakeFiles/httpthread.dir/build.make CMakeFiles/httpthread.dir/build
+.PHONY : httpthread/fast
 
 #=============================================================================
 # Target rules for targets named server
@@ -150,17 +189,17 @@ parameters/fast:
 .PHONY : parameters/fast
 
 #=============================================================================
-# Target rules for targets named epollserver
+# Target rules for targets named threadpool
 
 # Build rule for target.
-epollserver: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 epollserver
-.PHONY : epollserver
+threadpool: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 threadpool
+.PHONY : threadpool
 
 # fast build rule for target.
-epollserver/fast:
-	$(MAKE) -f CMakeFiles/epollserver.dir/build.make CMakeFiles/epollserver.dir/build
-.PHONY : epollserver/fast
+threadpool/fast:
+	$(MAKE) -f CMakeFiles/threadpool.dir/build.make CMakeFiles/threadpool.dir/build
+.PHONY : threadpool/fast
 
 #=============================================================================
 # Target rules for targets named stringsplit
@@ -175,18 +214,32 @@ stringsplit/fast:
 	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/build
 .PHONY : stringsplit/fast
 
-#=============================================================================
-# Target rules for targets named httpserver
+base/httpthread.o: base/httpthread.cpp.o
 
-# Build rule for target.
-httpserver: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 httpserver
-.PHONY : httpserver
+.PHONY : base/httpthread.o
 
-# fast build rule for target.
-httpserver/fast:
-	$(MAKE) -f CMakeFiles/httpserver.dir/build.make CMakeFiles/httpserver.dir/build
-.PHONY : httpserver/fast
+# target to build an object file
+base/httpthread.cpp.o:
+	$(MAKE) -f CMakeFiles/httpthread.dir/build.make CMakeFiles/httpthread.dir/base/httpthread.cpp.o
+.PHONY : base/httpthread.cpp.o
+
+base/httpthread.i: base/httpthread.cpp.i
+
+.PHONY : base/httpthread.i
+
+# target to preprocess a source file
+base/httpthread.cpp.i:
+	$(MAKE) -f CMakeFiles/httpthread.dir/build.make CMakeFiles/httpthread.dir/base/httpthread.cpp.i
+.PHONY : base/httpthread.cpp.i
+
+base/httpthread.s: base/httpthread.cpp.s
+
+.PHONY : base/httpthread.s
+
+# target to generate assembly for a file
+base/httpthread.cpp.s:
+	$(MAKE) -f CMakeFiles/httpthread.dir/build.make CMakeFiles/httpthread.dir/base/httpthread.cpp.s
+.PHONY : base/httpthread.cpp.s
 
 logger/logger.o: logger/logger.cpp.o
 
@@ -350,20 +403,52 @@ src/stringsplit.cpp.s:
 	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/src/stringsplit.cpp.s
 .PHONY : src/stringsplit.cpp.s
 
+src/threadpool.o: src/threadpool.cpp.o
+
+.PHONY : src/threadpool.o
+
+# target to build an object file
+src/threadpool.cpp.o:
+	$(MAKE) -f CMakeFiles/threadpool.dir/build.make CMakeFiles/threadpool.dir/src/threadpool.cpp.o
+.PHONY : src/threadpool.cpp.o
+
+src/threadpool.i: src/threadpool.cpp.i
+
+.PHONY : src/threadpool.i
+
+# target to preprocess a source file
+src/threadpool.cpp.i:
+	$(MAKE) -f CMakeFiles/threadpool.dir/build.make CMakeFiles/threadpool.dir/src/threadpool.cpp.i
+.PHONY : src/threadpool.cpp.i
+
+src/threadpool.s: src/threadpool.cpp.s
+
+.PHONY : src/threadpool.s
+
+# target to generate assembly for a file
+src/threadpool.cpp.s:
+	$(MAKE) -f CMakeFiles/threadpool.dir/build.make CMakeFiles/threadpool.dir/src/threadpool.cpp.s
+.PHONY : src/threadpool.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... logger"
-	@echo "... server"
-	@echo "... parameters"
+	@echo "... httpserver"
 	@echo "... edit_cache"
 	@echo "... epollserver"
+	@echo "... logger"
+	@echo "... rebuild_cache"
+	@echo "... httpthread"
+	@echo "... server"
+	@echo "... parameters"
+	@echo "... threadpool"
 	@echo "... stringsplit"
-	@echo "... httpserver"
+	@echo "... base/httpthread.o"
+	@echo "... base/httpthread.i"
+	@echo "... base/httpthread.s"
 	@echo "... logger/logger.o"
 	@echo "... logger/logger.i"
 	@echo "... logger/logger.s"
@@ -382,6 +467,9 @@ help:
 	@echo "... src/stringsplit.o"
 	@echo "... src/stringsplit.i"
 	@echo "... src/stringsplit.s"
+	@echo "... src/threadpool.o"
+	@echo "... src/threadpool.i"
+	@echo "... src/threadpool.s"
 .PHONY : help
 
 

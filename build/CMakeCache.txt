@@ -130,7 +130,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=TCP
+CMAKE_PROJECT_NAME:STATIC=httpserver
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -181,9 +181,6 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Dependencies for target
-StringSplit_LIB_DEPENDS:STATIC=
-
 //Value Computed by CMake
 TCP_BINARY_DIR:STATIC=/home/x/httpserver/build
 
@@ -191,10 +188,19 @@ TCP_BINARY_DIR:STATIC=/home/x/httpserver/build
 TCP_SOURCE_DIR:STATIC=/home/x/httpserver
 
 //Dependencies for the target
-epollserver_LIB_DEPENDS:STATIC=general;server;general;stringsplit;general;logger;
+epollserver_LIB_DEPENDS:STATIC=general;server;general;stringsplit;general;threadpool;general;httpthread;general;-lpthread;
 
-//Dependencies for the target
-httpdeal_LIB_DEPENDS:STATIC=general;stringsplit;
+//Dependencies for target
+httpcondition_LIB_DEPENDS:STATIC=
+
+//Value Computed by CMake
+httpserver_BINARY_DIR:STATIC=/home/x/httpserver/build
+
+//Value Computed by CMake
+httpserver_SOURCE_DIR:STATIC=/home/x/httpserver
+
+//Dependencies for target
+httpthread_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
 logger_LIB_DEPENDS:STATIC=
@@ -207,6 +213,9 @@ server_LIB_DEPENDS:STATIC=general;logger;
 
 //Dependencies for target
 stringsplit_LIB_DEPENDS:STATIC=
+
+//Dependencies for the target
+threadpool_LIB_DEPENDS:STATIC=general;parameters;general;epollserver;general;httpthread;general;-lpthread;
 
 
 ########################

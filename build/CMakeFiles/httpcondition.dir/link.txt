@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhttpcondition.a  CMakeFiles/httpcondition.dir/base/httpcondition.cpp.o
+/usr/bin/ranlib libhttpcondition.a

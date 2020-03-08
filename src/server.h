@@ -7,9 +7,10 @@
 #include <fcntl.h>
 #include <memory> //包含智能指针
 //本地文件
+#include "threadpool.h"
 #define LOGGER_WARN
 #define LOGGER_INFO
-#define LOGGER_DEBUG
+//#define LOGGER_DEBUG
 #include "logger.h"
 
 namespace httpserver
@@ -37,13 +38,18 @@ public:
 class Tcpserver
 {
 protected:
+    Threadpool *thread_pool_;
     std::shared_ptr<Socket> socket_ptr;
 
 public:
     Tcpserver() = delete;
-    explicit Tcpserver(int listenport);
+    explicit Tcpserver(Threadpool *pool, int listenport);
     virtual ~Tcpserver() {}
     void set_noblock(int fd);
+    inline bool add_task_to_pool(std::function<void()> newtask)
+    {
+        return thread_pool_->add_task_to_pool(newtask);
+    }
 };
 } // namespace httpserver
 

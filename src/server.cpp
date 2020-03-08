@@ -9,7 +9,7 @@ namespace httpserver
 *  @para listenport
 *  @para mode(1为udp 其余为tcp)
 */
-Socket::Socket(int listenport, int mode):port_(listenport),mode_(mode) //mode为1表示UDP传输，其余均为TCP
+Socket::Socket(int listenport, int mode) : port_(listenport), mode_(mode) //mode为1表示UDP传输，其余均为TCP
 {
     if (mode == 1)
         fd_ = socket(AF_INET, SOCK_DGRAM, 0); //为1表示UDP
@@ -73,7 +73,7 @@ void Socket::close()
 /**
 *  @brief 初始化tcpfd,设置复用，绑定地址端口，设置监听端口
 */
-Tcpserver::Tcpserver(int listenport) : socket_ptr(new Socket(listenport, 0))
+Tcpserver::Tcpserver(Threadpool *pool, int listenport) : thread_pool_(pool), socket_ptr(new Socket(listenport, 0))
 {
     socket_ptr->set_reuse();
     socket_ptr->bind();

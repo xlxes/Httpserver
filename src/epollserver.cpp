@@ -9,7 +9,7 @@ static const int MAX_MMAP_SIZE = 10000;
 /**
 *  @brief 根据param初始化一个Epollserver对象
 */
-Epollserver::Epollserver(parameters::Parameters *param) : Tcpserver(param->get_listen_port_()), param_(param)
+Epollserver::Epollserver(Threadpool *pool, Parameters *param) : Tcpserver(pool, param->get_listen_port_()), param_(param)
 {
     document_root_ = param_->get_doc_root_();
     default_file_ = param_->get_defaul_file_();
@@ -211,8 +211,11 @@ void Epollserver::epoll_loop()
             else if (events[i].events & EPOLLIN) //客户端发来请求事件
             {
                 DEBUG("receive a request from client[%d]\n", events[i].data.fd);
-                /********/
-                client_event(events[i].data.fd); //处理完请求直接删除事件
+                //将处理函数、参数使用bind函数添加到线程池任务
+                bool res = add_task_to_pool(std::bind(&Epollserver::client_event, this, static_cast<int>(events[i].data.fd)));
+                if (res == false)
+                    WARN("add task to pool fail\n");
+                //client_event(events[i].data.fd); //无线程池处理
                 del_event(events[i].data.fd, EPOLLIN);
             }
             else if (events[i].events & EPOLLRDHUP) //当客户端调用close时，进入该条件

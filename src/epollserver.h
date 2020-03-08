@@ -19,6 +19,7 @@
 #include "parameters.h"
 #include "server.h"
 #include "timequeue.h"
+#include "threadpool.h"
 
 using std::pair;
 using std::unordered_map;
@@ -45,14 +46,14 @@ private:
     int epoll_fd_;
     string document_root_;
     string default_file_;
-    parameters::Parameters*  param_;
+    Parameters*  param_;
     unordered_map<string, char *> http_file_; //string为文件路径对应的为共享内存的地址
     vector<int> file_fd_lists_;               //http文件打开后的fd列表
     static int signal_fd_;
     timer::Timerqueue client_time_queue_; //客户端超时队列
     timer::Timer *client_fd_timer[MAX_FD];     //客户端的fd以及对应的timer实例
 public:
-    Epollserver(parameters::Parameters *param);
+    Epollserver(Threadpool* pool,Parameters *param);
     virtual ~Epollserver();
     void epoll_loop();
     void del_event(int fd, int event_type);

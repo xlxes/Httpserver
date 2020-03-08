@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x/httpserver/base/httpthread.cpp
+httpthread.h
+/home/x/httpserver/base/httpthread.h
+
+/home/x/httpserver/base/httpthread.h
+boost/function.hpp
+-
+boost/atomic.hpp
+-
+

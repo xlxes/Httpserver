@@ -90,12 +90,20 @@ httpserver_EXTERNAL_OBJECTS =
 
 httpserver: CMakeFiles/httpserver.dir/src/main.cpp.o
 httpserver: CMakeFiles/httpserver.dir/build.make
-httpserver: libepollserver.a
-httpserver: libserver.a
+httpserver: libhttpthread.a
 httpserver: liblogger.a
 httpserver: libparameters.a
+httpserver: libthreadpool.a
+httpserver: libserver.a
 httpserver: libstringsplit.a
+httpserver: libepollserver.a
+httpserver: libthreadpool.a
+httpserver: libepollserver.a
+httpserver: libparameters.a
+httpserver: libhttpthread.a
+httpserver: libserver.a
 httpserver: liblogger.a
+httpserver: libstringsplit.a
 httpserver: CMakeFiles/httpserver.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/x/httpserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable httpserver"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/httpserver.dir/link.txt --verbose=$(VERBOSE)

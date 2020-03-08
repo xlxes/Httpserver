@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhttpthread.a  CMakeFiles/httpthread.dir/base/httpthread.cpp.o
+/usr/bin/ranlib libhttpthread.a

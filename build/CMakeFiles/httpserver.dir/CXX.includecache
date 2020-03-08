@@ -6,10 +6,20 @@
 
 #IncludeRegexTransform: 
 
+../base/httpcondition.h
+httpmutex.h
+../base/httpmutex.h
+
 ../base/httpmutex.h
 boost/noncopyable.hpp
 -
 pthread.h
+-
+
+../base/httpthread.h
+boost/function.hpp
+-
+boost/atomic.hpp
 -
 
 ../logger/logger.h
@@ -65,12 +75,16 @@ server.h
 /home/x/httpserver/src/server.h
 timequeue.h
 /home/x/httpserver/src/timequeue.h
+threadpool.h
+/home/x/httpserver/src/threadpool.h
 
 /home/x/httpserver/src/main.cpp
 parameters.h
 /home/x/httpserver/src/parameters.h
 epollserver.h
 /home/x/httpserver/src/epollserver.h
+threadpool.h
+/home/x/httpserver/src/threadpool.h
 
 /home/x/httpserver/src/parameters.h
 stdlib.h
@@ -109,6 +123,8 @@ fcntl.h
 -
 memory
 -
+threadpool.h
+/home/x/httpserver/src/threadpool.h
 logger.h
 /home/x/httpserver/src/logger.h
 
@@ -117,4 +133,38 @@ string
 -
 vector
 -
+
+/home/x/httpserver/src/threadpool.h
+boost/noncopyable.hpp
+-
+boost/ptr_container/ptr_vector.hpp
+-
+semaphore.h
+-
+workthread.h
+/home/x/httpserver/src/workthread.h
+parameters.h
+/home/x/httpserver/src/parameters.h
+
+/home/x/httpserver/src/workqueue.h
+httpmutex.h
+/home/x/httpserver/src/httpmutex.h
+boost/atomic.hpp
+/home/x/httpserver/src/boost/atomic.hpp
+logger.h
+/home/x/httpserver/src/logger.h
+
+/home/x/httpserver/src/workthread.h
+boost/noncopyable.hpp
+-
+memory
+-
+iostream
+-
+httpthread.h
+/home/x/httpserver/src/httpthread.h
+httpcondition.h
+/home/x/httpserver/src/httpcondition.h
+workqueue.h
+/home/x/httpserver/src/workqueue.h
 

@@ -3,8 +3,6 @@
 //全项目的命名空间即为httpserver
 namespace httpserver
 {
-namespace parameters
-{
 //短命令表示可以接受的命令参数
 static const char *short_cmd_opt = "c:o:d:f:l:a:t:i:m:h"; //后面带:表示带参数
 //长参数名*参数个数*返回标志位（为0返回val）*val
@@ -33,8 +31,8 @@ Parameters::Parameters(int argc, char *argv[])
       init_work_num_(INIT_WORK_NUM),
       max_work_num_(MAX_WORK_NUM)
 {
-    bool isload = loadconfig();                     //加载xml配置
-    if(isload==false)
+    bool isload = loadconfig(); //加载xml配置
+    if (isload == false)
         WARN("unable to load config.xml\n");
     if (argc >= 2 && argv != nullptr) //读取命令行配置
     {
@@ -177,7 +175,5 @@ bool Parameters::loadconfig()
     }
     return true;
 }
-
-} // namespace parameters
 
 } // namespace httpserver
