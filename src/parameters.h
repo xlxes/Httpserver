@@ -11,11 +11,6 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/property_tree/exceptions.hpp>
-
-
-#define LOGGER_WARN
-#define LOGGER_INFO
-//#define LOGGER_DEBUG
 #include "logger.h"
 
 using boost::property_tree::read_xml;   

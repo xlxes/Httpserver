@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/x/httpserver/src/stringsplit.cpp
+/home/x/httpserver/base/stringsplit.cpp
 string.h
 -
 stringsplit.h
-/home/x/httpserver/src/stringsplit.h
+/home/x/httpserver/base/stringsplit.h
 
-/home/x/httpserver/src/stringsplit.h
+/home/x/httpserver/base/stringsplit.h
 string
 -
 vector

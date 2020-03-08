@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/x/httpserver/src/stringsplit.cpp" "/home/x/httpserver/build/CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o"
+  "/home/x/httpserver/base/stringsplit.cpp" "/home/x/httpserver/build/CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

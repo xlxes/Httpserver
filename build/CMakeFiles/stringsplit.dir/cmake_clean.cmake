@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o"
+  "CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o"
   "libstringsplit.pdb"
   "libstringsplit.a"
 )

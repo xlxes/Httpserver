@@ -22,6 +22,12 @@ boost/function.hpp
 boost/atomic.hpp
 -
 
+../base/stringsplit.h
+string
+-
+vector
+-
+
 ../logger/logger.h
 iostream
 -
@@ -123,12 +129,6 @@ threadpool.h
 /home/x/httpserver/src/threadpool.h
 logger.h
 /home/x/httpserver/src/logger.h
-
-/home/x/httpserver/src/stringsplit.h
-string
--
-vector
--
 
 /home/x/httpserver/src/threadpool.h
 boost/noncopyable.hpp

@@ -10,13 +10,12 @@ include_directories(base logger timer)
 
 #add_library(httpcondition base/httpcondition.cpp)
 add_library(httpthread base/httpthread.cpp)
-
+add_library(stringsplit base/stringsplit.cpp)
 add_library(logger logger/logger.cpp)
 
 add_library(parameters src/parameters.cpp)
 add_library(threadpool src/threadpool.cpp)
 add_library(server src/server.cpp)
-add_library(stringsplit src/stringsplit.cpp)
 add_library(epollserver src/epollserver.cpp)
 
 

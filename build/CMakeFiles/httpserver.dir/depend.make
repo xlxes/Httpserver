@@ -4,6 +4,7 @@
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../base/httpcondition.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../base/httpmutex.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../base/httpthread.h
+CMakeFiles/httpserver.dir/src/main.cpp.o: ../base/stringsplit.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../logger/logger.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../timer/timequeue.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../timer/timer.h
@@ -11,7 +12,6 @@ CMakeFiles/httpserver.dir/src/main.cpp.o: ../src/epollserver.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../src/parameters.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../src/server.h
-CMakeFiles/httpserver.dir/src/main.cpp.o: ../src/stringsplit.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../src/threadpool.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../src/workqueue.h
 CMakeFiles/httpserver.dir/src/main.cpp.o: ../src/workthread.h

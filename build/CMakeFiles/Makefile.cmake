@@ -50,10 +50,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/httpserver.dir/DependInfo.cmake"
   "CMakeFiles/epollserver.dir/DependInfo.cmake"
-  "CMakeFiles/logger.dir/DependInfo.cmake"
+  "CMakeFiles/stringsplit.dir/DependInfo.cmake"
   "CMakeFiles/httpthread.dir/DependInfo.cmake"
+  "CMakeFiles/logger.dir/DependInfo.cmake"
   "CMakeFiles/server.dir/DependInfo.cmake"
   "CMakeFiles/parameters.dir/DependInfo.cmake"
   "CMakeFiles/threadpool.dir/DependInfo.cmake"
-  "CMakeFiles/stringsplit.dir/DependInfo.cmake"
   )

@@ -57,38 +57,38 @@ include CMakeFiles/stringsplit.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/stringsplit.dir/flags.make
 
-CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o: CMakeFiles/stringsplit.dir/flags.make
-CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o: ../src/stringsplit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/x/httpserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o -c /home/x/httpserver/src/stringsplit.cpp
+CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o: CMakeFiles/stringsplit.dir/flags.make
+CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o: ../base/stringsplit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/x/httpserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o -c /home/x/httpserver/base/stringsplit.cpp
 
-CMakeFiles/stringsplit.dir/src/stringsplit.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/stringsplit.dir/src/stringsplit.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/x/httpserver/src/stringsplit.cpp > CMakeFiles/stringsplit.dir/src/stringsplit.cpp.i
+CMakeFiles/stringsplit.dir/base/stringsplit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/stringsplit.dir/base/stringsplit.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/x/httpserver/base/stringsplit.cpp > CMakeFiles/stringsplit.dir/base/stringsplit.cpp.i
 
-CMakeFiles/stringsplit.dir/src/stringsplit.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/stringsplit.dir/src/stringsplit.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/x/httpserver/src/stringsplit.cpp -o CMakeFiles/stringsplit.dir/src/stringsplit.cpp.s
+CMakeFiles/stringsplit.dir/base/stringsplit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/stringsplit.dir/base/stringsplit.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/x/httpserver/base/stringsplit.cpp -o CMakeFiles/stringsplit.dir/base/stringsplit.cpp.s
 
-CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o.requires:
+CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o.requires:
 
-.PHONY : CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o.requires
+.PHONY : CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o.requires
 
-CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o.provides: CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o.requires
-	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o.provides.build
-.PHONY : CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o.provides
+CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o.provides: CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o.requires
+	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o.provides.build
+.PHONY : CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o.provides
 
-CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o.provides.build: CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o
+CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o.provides.build: CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o
 
 
 # Object files for target stringsplit
 stringsplit_OBJECTS = \
-"CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o"
+"CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o"
 
 # External object files for target stringsplit
 stringsplit_EXTERNAL_OBJECTS =
 
-libstringsplit.a: CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o
+libstringsplit.a: CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o
 libstringsplit.a: CMakeFiles/stringsplit.dir/build.make
 libstringsplit.a: CMakeFiles/stringsplit.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/x/httpserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libstringsplit.a"
@@ -100,7 +100,7 @@ CMakeFiles/stringsplit.dir/build: libstringsplit.a
 
 .PHONY : CMakeFiles/stringsplit.dir/build
 
-CMakeFiles/stringsplit.dir/requires: CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o.requires
+CMakeFiles/stringsplit.dir/requires: CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o.requires
 
 .PHONY : CMakeFiles/stringsplit.dir/requires
 

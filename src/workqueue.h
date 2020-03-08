@@ -3,9 +3,6 @@
 
 #include "httpmutex.h"
 #include "boost/atomic.hpp"
-#define LOGGER_WARN
-#define LOGGER_INFO
-//#define LOGGER_DEBUG
 #include "logger.h"
 
 using namespace httpmutex;

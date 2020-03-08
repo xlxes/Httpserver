@@ -137,17 +137,17 @@ epollserver/fast:
 .PHONY : epollserver/fast
 
 #=============================================================================
-# Target rules for targets named logger
+# Target rules for targets named stringsplit
 
 # Build rule for target.
-logger: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 logger
-.PHONY : logger
+stringsplit: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stringsplit
+.PHONY : stringsplit
 
 # fast build rule for target.
-logger/fast:
-	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/build
-.PHONY : logger/fast
+stringsplit/fast:
+	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/build
+.PHONY : stringsplit/fast
 
 #=============================================================================
 # Target rules for targets named httpthread
@@ -161,6 +161,19 @@ httpthread: cmake_check_build_system
 httpthread/fast:
 	$(MAKE) -f CMakeFiles/httpthread.dir/build.make CMakeFiles/httpthread.dir/build
 .PHONY : httpthread/fast
+
+#=============================================================================
+# Target rules for targets named logger
+
+# Build rule for target.
+logger: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 logger
+.PHONY : logger
+
+# fast build rule for target.
+logger/fast:
+	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/build
+.PHONY : logger/fast
 
 #=============================================================================
 # Target rules for targets named server
@@ -201,19 +214,6 @@ threadpool/fast:
 	$(MAKE) -f CMakeFiles/threadpool.dir/build.make CMakeFiles/threadpool.dir/build
 .PHONY : threadpool/fast
 
-#=============================================================================
-# Target rules for targets named stringsplit
-
-# Build rule for target.
-stringsplit: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stringsplit
-.PHONY : stringsplit
-
-# fast build rule for target.
-stringsplit/fast:
-	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/build
-.PHONY : stringsplit/fast
-
 base/httpthread.o: base/httpthread.cpp.o
 
 .PHONY : base/httpthread.o
@@ -240,6 +240,33 @@ base/httpthread.s: base/httpthread.cpp.s
 base/httpthread.cpp.s:
 	$(MAKE) -f CMakeFiles/httpthread.dir/build.make CMakeFiles/httpthread.dir/base/httpthread.cpp.s
 .PHONY : base/httpthread.cpp.s
+
+base/stringsplit.o: base/stringsplit.cpp.o
+
+.PHONY : base/stringsplit.o
+
+# target to build an object file
+base/stringsplit.cpp.o:
+	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/base/stringsplit.cpp.o
+.PHONY : base/stringsplit.cpp.o
+
+base/stringsplit.i: base/stringsplit.cpp.i
+
+.PHONY : base/stringsplit.i
+
+# target to preprocess a source file
+base/stringsplit.cpp.i:
+	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/base/stringsplit.cpp.i
+.PHONY : base/stringsplit.cpp.i
+
+base/stringsplit.s: base/stringsplit.cpp.s
+
+.PHONY : base/stringsplit.s
+
+# target to generate assembly for a file
+base/stringsplit.cpp.s:
+	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/base/stringsplit.cpp.s
+.PHONY : base/stringsplit.cpp.s
 
 logger/logger.o: logger/logger.cpp.o
 
@@ -376,33 +403,6 @@ src/server.cpp.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server.cpp.s
 .PHONY : src/server.cpp.s
 
-src/stringsplit.o: src/stringsplit.cpp.o
-
-.PHONY : src/stringsplit.o
-
-# target to build an object file
-src/stringsplit.cpp.o:
-	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/src/stringsplit.cpp.o
-.PHONY : src/stringsplit.cpp.o
-
-src/stringsplit.i: src/stringsplit.cpp.i
-
-.PHONY : src/stringsplit.i
-
-# target to preprocess a source file
-src/stringsplit.cpp.i:
-	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/src/stringsplit.cpp.i
-.PHONY : src/stringsplit.cpp.i
-
-src/stringsplit.s: src/stringsplit.cpp.s
-
-.PHONY : src/stringsplit.s
-
-# target to generate assembly for a file
-src/stringsplit.cpp.s:
-	$(MAKE) -f CMakeFiles/stringsplit.dir/build.make CMakeFiles/stringsplit.dir/src/stringsplit.cpp.s
-.PHONY : src/stringsplit.cpp.s
-
 src/threadpool.o: src/threadpool.cpp.o
 
 .PHONY : src/threadpool.o
@@ -439,16 +439,19 @@ help:
 	@echo "... httpserver"
 	@echo "... edit_cache"
 	@echo "... epollserver"
-	@echo "... logger"
+	@echo "... stringsplit"
 	@echo "... rebuild_cache"
 	@echo "... httpthread"
+	@echo "... logger"
 	@echo "... server"
 	@echo "... parameters"
 	@echo "... threadpool"
-	@echo "... stringsplit"
 	@echo "... base/httpthread.o"
 	@echo "... base/httpthread.i"
 	@echo "... base/httpthread.s"
+	@echo "... base/stringsplit.o"
+	@echo "... base/stringsplit.i"
+	@echo "... base/stringsplit.s"
 	@echo "... logger/logger.o"
 	@echo "... logger/logger.i"
 	@echo "... logger/logger.s"
@@ -464,9 +467,6 @@ help:
 	@echo "... src/server.o"
 	@echo "... src/server.i"
 	@echo "... src/server.s"
-	@echo "... src/stringsplit.o"
-	@echo "... src/stringsplit.i"
-	@echo "... src/stringsplit.s"
 	@echo "... src/threadpool.o"
 	@echo "... src/threadpool.i"
 	@echo "... src/threadpool.s"

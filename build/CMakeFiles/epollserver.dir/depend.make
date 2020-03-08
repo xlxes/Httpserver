@@ -4,6 +4,7 @@
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../base/httpcondition.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../base/httpmutex.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../base/httpthread.h
+CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../base/stringsplit.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../logger/logger.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../timer/timequeue.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../timer/timer.h
@@ -11,7 +12,6 @@ CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../src/epollserver.cpp
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../src/epollserver.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../src/parameters.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../src/server.h
-CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../src/stringsplit.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../src/threadpool.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../src/workqueue.h
 CMakeFiles/epollserver.dir/src/epollserver.cpp.o: ../src/workthread.h
